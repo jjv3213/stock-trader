@@ -1,3 +1,22 @@
 <template>
-  <h1>Stocks- stocks Component</h1>
+  <div class="stocks">
+    <Stock v-for="stock in stocks" :key="stock.id" :stock="stock"/>
+  </div>
 </template>
+
+<script>
+import Stock from "./Stock.vue";
+
+export default {
+  name: "Stocks",
+  components: {
+    Stock
+  },
+  computed: {
+    stocks() {
+      return this.$store.getters.stocks;
+    }
+  }
+};
+</script>
+ 
